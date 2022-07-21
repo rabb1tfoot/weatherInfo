@@ -43,7 +43,7 @@ public class DiaryController {
 
     }
     @ApiOperation(value = "DB에서 일기를 업데이트 하기", notes = "기존값은 지워집니다")
-    @PostMapping("/update/diary")
+    @PutMapping("/update/diary")
     void updateDiary(@RequestParam @DateTimeFormat(iso= DateTimeFormat.ISO.DATE) LocalDate date,
                             @RequestBody String text){
         diaryService.updateDiary(date, text);
@@ -51,7 +51,7 @@ public class DiaryController {
     }
 
     @ApiOperation(value = "DB에서 일기를 삭제하기", notes = "Date type : yyyy-mm-dd")
-    @PostMapping("/delete/diary")
+    @DeleteMapping("/delete/diary")
     void deleteDiary(@RequestParam @DateTimeFormat(iso= DateTimeFormat.ISO.DATE) LocalDate date){
         diaryService.DeleteDiary(date);
 
